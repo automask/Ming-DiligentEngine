@@ -1,6 +1,11 @@
 {
+    "C_Cpp.intelliSenseEngine": "default",
     "cmake.buildDirectory": "${workspaceRoot}/build/${buildType}",
-    "cmake.configureSettings": { "DILIGENT_BUILD_TESTS": "TRUE", "DILIGENT_NO_FORMAT_VALIDATION": "FALSE", "CMAKE_INSTALL_PREFIX": "install"}, 
+    "cmake.configureSettings": {
+        "DILIGENT_BUILD_TESTS": "TRUE",
+        "DILIGENT_NO_FORMAT_VALIDATION": "FALSE",
+        "CMAKE_INSTALL_PREFIX": "install"
+    },
     "files.associations": {
         "*.tcc": "cpp",
         "ostream": "cpp",
@@ -80,5 +85,6 @@
         "typeindex": "cpp",
         "variant": "cpp",
         "regex": "cpp"
-    }
+    },
+    "dotnet.defaultSolution": "disable"
 }

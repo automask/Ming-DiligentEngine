@@ -8,17 +8,48 @@
             "id": "graphicsMode",
             "type": "pickString",
             "description": "Select graphics mode",
-            "options": ["vk", "vk_sw", "gl"],
+            "options": [
+                "vk",
+                "vk_sw",
+                "gl"
+            ],
             "default": "vk"
         }
-    ],    
+    ],
     "configurations": [
+        // --------------------------------------------------------------
+        {
+            // ctrl + F5|Cmake Debug
+            "name": "cpp_cmake_launch",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${command:cmake.launchTargetPath}",
+            "args": [
+                "--mode",
+                "D3D12" // D3D11|D3D12|GL|VK
+            ],
+            "stopAtEntry": false,
+            "cwd": "${command:cmake.launchTargetDirectory}",
+            "environment": [
+                {
+                    "name": "PATH",
+                    // 使用系统环境变量${env:PATH}
+                    "value": "${env:PATH};${command:cmake.launchTargetDirectory}"
+                },
+            ],
+            "console": "integratedTerminal", // 方便输入integratedTerminal
+            // "console": "externalTerminal",
+        },
+        // --------------------------------------------------------------
         {
             "name": "Atmosphere",
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Samples/Atmosphere/Atmosphere",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Samples/Atmosphere/assets",
             "environment": [],
@@ -38,7 +69,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Samples/GLTFViewer/GLTFViewer",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Samples/GLTFViewer/assets",
             "environment": [],
@@ -58,7 +92,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Samples/Shadows/Shadows",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Samples/Shadows/assets",
             "environment": [],
@@ -78,7 +115,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Samples/ImguiDemo/ImguiDemo",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Samples/ImguiDemo/assets",
             "environment": [],
@@ -98,7 +138,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Samples/NuklearDemo/NuklearDemo",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Samples/NuklearDemo/assets",
             "environment": [],
@@ -118,7 +161,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Samples/GLFWDemo/GLFWDemo",
-            "args": ["--mode", "vk"],
+            "args": [
+                "--mode",
+                "vk"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Samples/GLFWDemo/assets",
             "environment": [],
@@ -138,7 +184,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/UnityPlugin/GhostCubeScene/GhostCubeScene",
-            "args": ["--mode", "gl"],
+            "args": [
+                "--mode",
+                "gl"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/UnityPlugin/GhostCubeScene/assets",
             "environment": [],
@@ -158,7 +207,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial00_HelloLinux/Tutorial00_HelloLinux",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial00_HelloLinux",
             "environment": [],
@@ -178,7 +230,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial01_HelloTriangle/Tutorial01_HelloTriangle",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial01_HelloTriangle/assets",
             "environment": [],
@@ -198,7 +253,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial02_Cube/Tutorial02_Cube",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial02_Cube/assets",
             "environment": [],
@@ -218,7 +276,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial03_Texturing/Tutorial03_Texturing",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial03_Texturing/assets",
             "environment": [],
@@ -238,7 +299,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial03_Texturing-C/Tutorial03_Texturing-C",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial03_Texturing-C/assets",
             "environment": [],
@@ -258,7 +322,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial04_Instancing/Tutorial04_Instancing",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial04_Instancing/assets",
             "environment": [],
@@ -278,7 +345,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial05_TextureArray/Tutorial05_TextureArray",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial05_TextureArray/assets",
             "environment": [],
@@ -298,7 +368,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial06_Multithreading/Tutorial06_Multithreading",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial06_Multithreading/assets",
             "environment": [],
@@ -318,7 +391,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial07_GeometryShader/Tutorial07_GeometryShader",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial07_GeometryShader/assets",
             "environment": [],
@@ -338,7 +414,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial08_Tessellation/Tutorial08_Tessellation",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial08_Tessellation/assets",
             "environment": [],
@@ -358,7 +437,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial09_Quads/Tutorial09_Quads",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial09_Quads/assets",
             "environment": [],
@@ -378,7 +460,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial10_DataStreaming/Tutorial10_DataStreaming",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial10_DataStreaming/assets",
             "environment": [],
@@ -398,7 +483,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial11_ResourceUpdates/Tutorial11_ResourceUpdates",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial11_ResourceUpdates/assets",
             "environment": [],
@@ -418,7 +506,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial12_RenderTarget/Tutorial12_RenderTarget",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial12_RenderTarget/assets",
             "environment": [],
@@ -438,7 +529,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial13_ShadowMap/Tutorial13_ShadowMap",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial13_ShadowMap/assets",
             "environment": [],
@@ -458,7 +552,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial14_ComputeShader/Tutorial14_ComputeShader",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial14_ComputeShader/assets",
             "environment": [],
@@ -478,7 +575,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial16_BindlessResources/Tutorial16_BindlessResources",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial16_BindlessResources/assets",
             "environment": [],
@@ -498,7 +598,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial17_MSAA/Tutorial17_MSAA",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial17_MSAA/assets",
             "environment": [],
@@ -518,7 +621,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial18_Queries/Tutorial18_Queries",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial18_Queries/assets",
             "environment": [],
@@ -538,7 +644,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial19_RenderPasses/Tutorial19_RenderPasses",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial19_RenderPasses/assets",
             "environment": [],
@@ -558,7 +667,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial20_MeshShader/Tutorial20_MeshShader",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial20_MeshShader/assets",
             "environment": [],
@@ -578,7 +690,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial21_RayTracing/Tutorial21_RayTracing",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial21_RayTracing/assets",
             "environment": [],
@@ -598,7 +713,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial22_HybridRendering/Tutorial22_HybridRendering",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial22_HybridRendering/assets",
             "environment": [],
@@ -618,7 +736,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial23_CommandQueues/Tutorial23_CommandQueues",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial23_CommandQueues/assets",
             "environment": [],
@@ -638,7 +759,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial24_VRS/Tutorial24_VRS",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial24_VRS/assets",
             "environment": [],
@@ -658,7 +782,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial25_StatePackager/Tutorial25_StatePackager",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial25_StatePackager/assets",
             "environment": [],
@@ -678,7 +805,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial26_StateCache/Tutorial26_StateCache",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial26_StateCache/assets",
             "environment": [],
@@ -698,7 +828,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial27_PostProcessing/Tutorial27_PostProcessing",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial27_PostProcessing/assets",
             "environment": [],
@@ -718,7 +851,10 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentSamples/Tutorials/Tutorial29_OIT/Tutorial29_OIT",
-            "args": ["--mode", "${input:graphicsMode}"],
+            "args": [
+                "--mode",
+                "${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentSamples/Tutorials/Tutorial29_OIT/assets",
             "environment": [],
@@ -732,13 +868,15 @@
                 }
             ],
             "preLaunchTask": "Build Tutorial29_OIT"
-        },        
+        },
         {
             "name": "DiligentCoreTest",
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentCore/Tests/DiligentCoreTest/DiligentCoreTest",
-            "args": [""],
+            "args": [
+                ""
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentCore/Tests/DiligentCoreTest/assets",
             "environment": [],
@@ -758,7 +896,9 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentCore/Tests/DiligentCoreAPITest/DiligentCoreAPITest",
-            "args": ["--mode=${input:graphicsMode}"],
+            "args": [
+                "--mode=${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentCore/Tests/DiligentCoreAPITest/assets",
             "environment": [],
@@ -778,7 +918,9 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentTools/Tests/DiligentToolsTest/DiligentToolsTest",
-            "args": ["--gtest_filter=*.*"],
+            "args": [
+                "--gtest_filter=*.*"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentTools/Tests/DiligentToolsTest/assets",
             "environment": [],
@@ -798,7 +940,9 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentTools/Tests/DiligentToolsGPUTest/DiligentToolsGPUTest",
-            "args": ["--mode=${input:graphicsMode}"],
+            "args": [
+                "--mode=${input:graphicsMode}"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentTools/Tests/DiligentToolsGPUTest/assets",
             "environment": [],
@@ -818,7 +962,15 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentTools/HLSL2GLSLConverter/HLSL2GLSLConverter",
-            "args": ["-i", "ConverterTest.fx", "-e", "TestPS", "-t", "ps", "-c"],
+            "args": [
+                "-i",
+                "ConverterTest.fx",
+                "-e",
+                "TestPS",
+                "-t",
+                "ps",
+                "-c"
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentTools/HLSL2GLSLConverter/testshaders",
             "environment": [],
@@ -838,7 +990,9 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${command:cmake.buildDirectory}/DiligentTools/RenderStatePackager/Diligent-RenderStatePackager",
-            "args": [""],
+            "args": [
+                ""
+            ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DiligentTools/RenderStatePackager",
             "environment": [],
